@@ -1027,6 +1027,10 @@ select.field__input { appearance: none; background-image: linear-gradient(45deg,
   .nav-actions .btn { display: none; }
   .nav__link.is-active { color: var(--ink); }
 
+  /* бургер — к правому краю пилюли, сама пилюля с отступами от краёв экрана */
+  .nav-actions { margin-left: auto; }
+  .nav-wrap { margin-inline: 10px; }
+
   .hero { padding-top: calc(var(--header-h) + 40px); padding-bottom: 24px; }
   .hero__row { flex-direction: column; align-items: flex-start; gap: 20px; padding-bottom: 60px; }
   .hero__text { padding-bottom: 0; }
