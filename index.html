@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Service — автосервис в Казани · ремонт и обслуживание авто</title>
+  <meta name="description" content="Автосервис For Service на ул. Габдуллы Тукая, 82, Казань. Рейтинг 4,9 на Яндекс.Картах. Компьютерная диагностика, ремонт двигателя, АКПП, ходовой, ремонт по ОСАГО. Ежедневно 9:00–20:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23FFD60A'/><path d='M44 15H27a11 11 0 0 0 0 22h5v12h11V15z' fill='%23101114'/></svg>">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="header">
+    <div class="nav-wrap">
+      <a href="#top" class="logo" aria-label="For Service — на главную">
+        <span class="logo-mark">FS</span>
+        <span class="logo-text">For Service</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#services" class="nav__link">Услуги</a>
+        <a href="#prices" class="nav__link">Цены</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#about" class="nav__link">О сервисе</a>
+        <a href="#contacts" class="nav__link">Контакты</a>
+        <a href="tel:+79003275775" class="nav__phone">+7 (900) 327-57-75</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#booking" class="btn btn--accent btn--sm">Записаться</a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" role="presentation">
+        <img src="images/hero.jpg" alt="Фасад автосервиса For Service в Казани">
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="container hero__content">
+        <div class="hero__badges reveal">
+          <span class="badge badge--star"><i data-lucide="star"></i>4,9 · 162 оценки</span>
+          <span class="badge"><i data-lucide="award"></i>Хорошее место 2026 — Яндекс.Карты</span>
+        </div>
+
+        <div class="hero__row">
+          <h1 class="hero__title reveal">Автосервис<br>в&nbsp;Казани</h1>
+          <p class="hero__text reveal">
+            Ремонт и обслуживание любых марок — от компьютерной диагностики
+            до капитального ремонта двигателя и АКПП. Подберём запчасти
+            и привезём их на ремонт: чаще всего — за 30&nbsp;минут.
+          </p>
+        </div>
+      </div>
+
+      <!-- Форма записи -->
+      <div class="container">
+        <div class="booking reveal" id="booking">
+          <div class="booking__tabs" role="tablist" aria-label="Тип заявки">
+            <button class="booking__tab is-active" data-tab="to" role="tab" aria-selected="true">ТО и масло</button>
+            <button class="booking__tab" data-tab="repair" role="tab" aria-selected="false">Ремонт и диагностика</button>
+            <button class="booking__tab" data-tab="osago" role="tab" aria-selected="false">ОСАГО</button>
+          </div>
+
+          <form class="booking__form" id="bookingForm" novalidate>
+            <label class="field">
+              <span class="field__label">Услуга</span>
+              <select class="field__input" id="bookingService" name="service"></select>
+            </label>
+            <label class="field">
+              <span class="field__label">Удобная дата</span>
+              <input class="field__input" type="date" id="bookingDate" name="date">
+            </label>
+            <label class="field">
+              <span class="field__label">Ваш телефон</span>
+              <input class="field__input" type="tel" id="bookingPhone" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel">
+            </label>
+            <button class="btn btn--accent booking__submit" type="submit">Записаться</button>
+          </form>
+
+          <p class="booking__done" id="bookingDone" hidden>
+            Заявка принята! Перезвоним в течение 15 минут в рабочее время (9:00–20:00).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section__title reveal">Направления работ</h2>
+        <p class="section__sub reveal">Слесарный ремонт, диагностика и автоэлектрика для европейских, японских, корейских, китайских и отечественных авто.</p>
+
+        <div class="cat-grid">
+          <a href="#prices" class="cat-card reveal" style="--i:0">
+            <img src="images/bay.jpg" alt="Диагностика двигателя">
+            <div class="cat-card__name">Диагностика</div>
+            <div class="cat-card__desc">Компьютерная диагностика, эндоскопия, раскоксовка</div>
+            <span class="cat-card__go" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span>
+          </a>
+          <a href="#prices" class="cat-card reveal" style="--i:1">
+            <img src="images/engine.jpg" alt="Ремонт двигателя и трансмиссии">
+            <div class="cat-card__name">Двигатель и АКПП</div>
+            <div class="cat-card__desc">ГРМ, ГБЦ, КПП, АКПП, РКПП, сцепление, турбины</div>
+            <span class="cat-card__go" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span>
+          </a>
+          <a href="#prices" class="cat-card reveal" style="--i:2">
+            <img src="images/lift.jpg" alt="Ремонт ходовой части">
+            <div class="cat-card__name">Ходовая и тормоза</div>
+            <div class="cat-card__desc">Подвеска, шаровые опоры, амортизаторы, тормозная система</div>
+            <span class="cat-card__go" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span>
+          </a>
+          <a href="#contacts" class="cat-card reveal" style="--i:3">
+            <img src="images/reception.jpg" alt="Приёмка автомобилей">
+            <div class="cat-card__name">Приёмка и ОСАГО</div>
+            <div class="cat-card__desc">Ремонт по ОСАГО, предрейсовый техосмотр, доп. оборудование</div>
+            <span class="cat-card__go" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= POPULAR / PRICES CARDS ================= -->
+    <section class="section section--tint" id="popular">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">Популярные услуги</h2>
+          <a class="btn btn--ghost" href="#prices">Весь прайс <i data-lucide="arrow-down"></i></a>
+        </div>
+
+        <div class="pop-grid">
+          <article class="pop-card reveal" style="--i:0">
+            <img src="images/bay.jpg" alt="">
+            <h3>Компьютерная диагностика</h3>
+            <div class="pop-card__foot">
+              <span class="price">1000 ₽</span>
+              <a class="btn btn--line" href="#booking">Записаться</a>
+            </div>
+          </article>
+          <article class="pop-card reveal" style="--i:1">
+            <img src="images/lift.jpg" alt="">
+            <h3>Замена масла ДВС</h3>
+            <div class="pop-card__foot">
+              <span class="price">от 800 ₽</span>
+              <a class="btn btn--line" href="#booking">Записаться</a>
+            </div>
+          </article>
+          <article class="pop-card reveal" style="--i:2">
+            <img src="images/engine.jpg" alt="">
+            <h3>Замена свечей зажигания</h3>
+            <div class="pop-card__foot">
+              <span class="price">от 800 ₽</span>
+              <a class="btn btn--line" href="#booking">Записаться</a>
+            </div>
+          </article>
+          <article class="pop-card reveal" style="--i:3">
+            <img src="images/clutch.jpg" alt="">
+            <h3>Осмотр ходовой части</h3>
+            <div class="pop-card__foot">
+              <span class="price">1000 ₽</span>
+              <a class="btn btn--line" href="#booking">Записаться</a>
+            </div>
+          </article>
+          <article class="pop-card reveal" style="--i:4">
+            <img src="images/banner.jpg" alt="">
+            <h3>Эндоскопия двигателя</h3>
+            <div class="pop-card__foot">
+              <span class="price">от 1000 ₽</span>
+              <a class="btn btn--line" href="#booking">Записаться</a>
+            </div>
+          </article>
+          <article class="pop-card reveal" style="--i:5">
+            <img src="images/scanner.jpg" alt="">
+            <h3>Заправка кондиционера</h3>
+            <div class="pop-card__foot">
+              <span class="price">2000 ₽</span>
+              <a class="btn btn--line" href="#booking">Записаться</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURES (dark band) ================= -->
+    <section class="features">
+      <div class="container features__grid">
+        <div class="feature reveal" style="--i:0">
+          <span class="feature__icon"><i data-lucide="credit-card"></i></span>
+          <p><strong>Оплата как удобно</strong><br>карта, СБП, наличные, перевод</p>
+        </div>
+        <div class="feature reveal" style="--i:1">
+          <span class="feature__icon"><i data-lucide="package"></i></span>
+          <p><strong>Запчасти под заказ</strong><br>подберём и привезём за 30 минут</p>
+        </div>
+        <div class="feature reveal" style="--i:2">
+          <span class="feature__icon"><i data-lucide="shield-check"></i></span>
+          <p><strong>Ремонт по ОСАГО</strong><br>согласуем перечень работ со страховой</p>
+        </div>
+        <div class="feature reveal" style="--i:3">
+          <span class="feature__icon"><i data-lucide="circle-parking"></i></span>
+          <p><strong>Парковка и Wi-Fi</strong><br>бесплатно для клиентов сервиса</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DISCOUNT BANNER ================= -->
+    <section class="deal">
+      <div class="container deal__inner">
+        <div class="deal__text reveal">
+          <span class="deal__chip"><i data-lucide="timer"></i>1000 ₽ · Check Engine</span>
+          <h2>Диагностика за 30&nbsp;минут</h2>
+          <p>Загорелся Check Engine? Найдём причину по ошибкам и покажем, что именно чинить, — без «раскрутки» на лишние работы.</p>
+          <a href="#booking" class="btn btn--accent">Записаться на диагностику</a>
+        </div>
+        <div class="deal__img reveal" aria-hidden="true">
+          <img src="images/lift.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FULL PRICE LIST ================= -->
+    <section class="section" id="prices">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">Прайс-лист</h2>
+          <div class="searchbox">
+            <i data-lucide="search"></i>
+            <input type="search" id="priceSearch" placeholder="Найти услугу…" aria-label="Поиск по прайсу">
+          </div>
+        </div>
+
+        <div class="price-table reveal" id="priceTable">
+          <div class="price-row" data-name="осмотр ходовой части автомобиля ходовая подвеска">
+            <span class="price-row__name">Осмотр ходовой части <em>20 мин</em></span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">1000 ₽</span>
+          </div>
+          <div class="price-row" data-name="компьютерная диагностика check engine ошибки сканер">
+            <span class="price-row__name">Компьютерная диагностика</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">1000 ₽</span>
+          </div>
+          <div class="price-row" data-name="эндоскопия двигателя изнутри цилиндры">
+            <span class="price-row__name">Эндоскопия двигателя</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 1000 ₽</span>
+          </div>
+          <div class="price-row" data-name="замена свечей зажигания">
+            <span class="price-row__name">Замена свечей зажигания</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 800 ₽</span>
+          </div>
+          <div class="price-row" data-name="замена масла двс экспресс то">
+            <span class="price-row__name">Замена масла ДВС <em>экспресс</em></span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 800 ₽</span>
+          </div>
+          <div class="price-row" data-name="заправка кондиционера фреон">
+            <span class="price-row__name">Заправка кондиционера</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">2000 ₽</span>
+          </div>
+          <div class="price-row" data-name="тормоза подвеска ходовая часть колодки диски стойки">
+            <span class="price-row__name">Тормоза, подвеска и ходовая часть</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 800 ₽</span>
+          </div>
+          <div class="price-row" data-name="двигатель трансмиссия грм гбц кпп акпп сцепление">
+            <span class="price-row__name">Двигатель и трансмиссия</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 800 ₽</span>
+          </div>
+          <div class="price-row" data-name="электрика рулевое управление генератор стартер гидроусилитель">
+            <span class="price-row__name">Электрика и рулевое управление</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 200 ₽</span>
+          </div>
+          <div class="price-row" data-name="система охлаждения отопления радиатор антифриз печка">
+            <span class="price-row__name">Система охлаждения и отопления</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 1000 ₽</span>
+          </div>
+          <div class="price-row" data-name="прочее мелкий ремонт вспомогательные работы">
+            <span class="price-row__name">Прочее</span>
+            <span class="price-row__dots" aria-hidden="true"></span>
+            <span class="price-row__value">от 400 ₽</span>
+          </div>
+          <p class="price-table__empty" id="priceEmpty" hidden>Ничего не нашлось — позвоните, подскажем: <a href="tel:+79003275775">+7 (900) 327-57-75</a></p>
+        </div>
+
+        <p class="price-note reveal">
+          Итоговая стоимость работ зависит от марки и состояния автомобиля — согласуем до начала ремонта.
+          <br>Полный перечень: <a href="https://yandex.ru/maps/org/for_service/232108090295/prices/" target="_blank" rel="noopener">товары и услуги в Яндекс.Картах ↗</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= BRANDS MARQUEE ================= -->
+    <section class="brands" aria-label="Обслуживаемые марки">
+      <div class="brands__track">
+        <span>Mercedes-Benz</span><span>BMW</span><span>Audi</span><span>Volkswagen</span><span>ŠKODA</span><span>Toyota</span><span>Kia</span><span>Hyundai</span><span>Nissan</span><span>Mazda</span><span>Honda</span><span>Subaru</span><span>Mitsubishi</span><span>Suzuki</span><span>Renault</span><span>Peugeot</span><span>Citroen</span><span>Opel</span><span>Ford</span><span>Chevrolet</span><span>Volvo</span><span>Lexus</span><span>ВАЗ</span><span>SsangYong</span><span>Daewoo</span>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT + REVIEWS ================= -->
+    <section class="section section--tint" id="about">
+      <div class="container">
+        <div class="about">
+          <div class="about__media reveal">
+            <img src="images/banner.jpg" alt="Автосервис For Service — вывеска">
+            <img src="images/parking.jpg" alt="Парковка у автосервиса">
+          </div>
+          <div class="about__body">
+            <h2 class="section__title reveal">О сервисе</h2>
+            <p class="reveal">
+              For Service — автосервис и автотехцентр в Вахитовском районе Казани,
+              ул. Габдуллы Тукая, 82, корп. 3. Работаем ежедневно с 9:00 до 20:00.
+              На Яндекс.Картах у нас <strong>4,9 из 5</strong> по 162 оценкам и награда
+              «Хорошее место&nbsp;— 2026»: клиенты отмечают персонал (88% положительных
+              отзывов), скорость ремонта и качество диагностики (100%).
+            </p>
+            <ul class="about__list reveal">
+              <li>Слесарный ремонт, автоэлектрика, шиномонтаж</li>
+              <li>Ремонт по ОСАГО, предрейсовый техосмотр</li>
+              <li>Удаление катализаторов, установка фаркопов и доп. оборудования</li>
+              <li>Запчасти и комплектующие под заказ, оригинал или аналог — решаете вы</li>
+            </ul>
+            <div class="about__stats reveal">
+              <div class="stat"><b>4,9</b><span>рейтинг<br>Яндекс.Карты</span></div>
+              <div class="stat"><b>90</b><span>отзывов<br>клиентов</span></div>
+              <div class="stat"><b>30 мин</b><span>подбор<br>запчастей</span></div>
+              <div class="stat"><b>7 дней</b><span>в неделю<br>9:00–20:00</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">Отзывы с Яндекс.Карт</h2>
+          <div class="reviews__nav">
+            <button class="slider-btn" id="revPrev" aria-label="Предыдущий отзыв"><i data-lucide="arrow-left"></i></button>
+            <button class="slider-btn" id="revNext" aria-label="Следующий отзыв"><i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="reviews__summary reveal">
+          <div class="rating-big"><b>4,9</b><span>162 оценки</span></div>
+          <div class="bars">
+            <div class="bar" style="--v:100%"><span>Диагностика</span><i></i><em>100%</em></div>
+            <div class="bar" style="--v:89%"><span>Время ожидания</span><i></i><em>89%</em></div>
+            <div class="bar" style="--v:88%"><span>Персонал</span><i></i><em>88%</em></div>
+            <div class="bar" style="--v:83%"><span>Ремонт</span><i></i><em>83%</em></div>
+            <div class="bar" style="--v:78%"><span>Запчасти</span><i></i><em>78%</em></div>
+          </div>
+        </div>
+
+        <div class="reviews reveal" id="reviewsTrack">
+          <article class="review">
+            <div class="review__head">
+              <span class="review__ava" style="--h:210">И</span>
+              <div><b>Ирина</b><time datetime="2025-07-29">29 июля</time></div>
+              <span class="review__stars" aria-label="5 звёзд">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              </span>
+            </div>
+            <p>Были в Казани проездом. Загорелся чек. Заехали чисто случайно. Сделали диагностику, нашли причину и через 30 минут мы уже поехали дальше. Запчасть — оригинал. Парни отреагировали быстро и качественно. Рекомендую 👍</p>
+          </article>
+          <article class="review">
+            <div class="review__head">
+              <span class="review__ava" style="--h:130">Р</span>
+              <div><b>Рустем Я</b><time datetime="2025-03-16">16 марта</time></div>
+              <span class="review__stars" aria-label="5 звёзд">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              </span>
+            </div>
+            <p>Очень оперативное обслуживание. Заехал на Шевроле менять накладки перед и зад, с дисками заодно ручник. Администратор подобрал и заказал необходимые запчасти, и в течение получаса уже всё было на месте. Цены приемлемые.</p>
+          </article>
+          <article class="review">
+            <div class="review__head">
+              <span class="review__ava" style="--h:250">В</span>
+              <div><b>Вадим Шаймарданов</b><time datetime="2025-03-06">6 марта</time></div>
+              <span class="review__stars" aria-label="5 звёзд">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              </span>
+            </div>
+            <p>Отличный сервис. Всё на должном уровне, есть толковые слесари. На ресепшене приятное общение, к авто отношение аккуратное. Запчасти можно заказать через них. ТО провели за полчаса — в другом сервисе это минимум час. Теперь только сюда 👍🏻</p>
+          </article>
+        </div>
+        <a class="link-more reveal" href="https://yandex.ru/maps/org/for_service/232108090295/reviews/" target="_blank" rel="noopener">Все 90 отзывов в Яндекс.Картах <i data-lucide="arrow-up-right"></i></a>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTS ================= -->
+    <section class="section section--tint" id="contacts">
+      <div class="container">
+        <h2 class="section__title reveal">Контакты</h2>
+
+        <div class="contacts">
+          <div class="contacts__info reveal">
+            <div class="contact-row">
+              <span class="contact-row__icon"><i data-lucide="map-pin"></i></span>
+              <div><b>Адрес</b><p>ул. Габдуллы Тукая, 82, корп. 3, Казань</p></div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row__icon"><i data-lucide="phone"></i></span>
+              <div><b>Телефон</b><p><a href="tel:+79003275775">+7 (900) 327-57-75</a></p></div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row__icon"><i data-lucide="clock"></i></span>
+              <div><b>Время работы</b><p>Ежедневно 9:00–20:00, без выходных</p></div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row__icon"><i data-lucide="credit-card"></i></span>
+              <div><b>Оплата</b><p>Наличные · карта · СБП · банковский перевод</p></div>
+            </div>
+
+            <!-- Мини-форма заявки -->
+            <form class="contact-form" id="contactForm" novalidate>
+              <h3>Оставить заявку</h3>
+              <input class="field__input" type="text" id="contactName" placeholder="Имя" required>
+              <input class="field__input" type="tel" id="contactPhone" placeholder="+7 (___) ___-__-__" inputmode="tel" required>
+              <input class="field__input" type="text" id="contactCar" placeholder="Марка и модель авто">
+              <button class="btn btn--dark" type="submit">Записаться на ремонт</button>
+              <p class="contact-form__done" id="contactDone" hidden>Спасибо! Заявка принята — перезвоним в течение 15 минут.</p>
+            </form>
+          </div>
+
+          <div class="contacts__map reveal">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?mode=search&oid=232108090295&ll=49.106414%2C55.796129&z=16"
+              width="100%" height="100%" frameborder="0" allowfullscreen="true"
+              title="For Service на карте Казани" loading="lazy"></iframe>
+            <a class="map-link" href="https://yandex.ru/maps/org/for_service/232108090295/" target="_blank" rel="noopener">Открыть в Яндекс.Картах <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark">FS</span>
+          <span class="logo-text">For Service</span>
+        </a>
+        <p>Автосервис и автотехцентр<br>в Казани. Ежедневно 9:00–20:00.</p>
+        <a class="btn btn--accent btn--sm" href="tel:+79003275775">+7 (900) 327-57-75</a>
+      </div>
+
+      <div class="footer__col">
+        <b>Услуги</b>
+        <a href="#prices">Компьютерная диагностика</a>
+        <a href="#prices">Ремонт двигателя и АКПП</a>
+        <a href="#prices">Ходовая и тормоза</a>
+        <a href="#prices">Замена масла и ТО</a>
+        <a href="#prices">Шиномонтаж</a>
+      </div>
+
+      <div class="footer__col">
+        <b>Информация</b>
+        <a href="#about">О сервисе</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#prices">Прайс-лист</a>
+        <a href="https://yandex.ru/maps/org/for_service/232108090295/" target="_blank" rel="noopener">Яндекс.Карты ↗</a>
+      </div>
+
+      <div class="footer__col">
+        <b>Контакты</b>
+        <p>ул. Габдуллы Тукая, 82, корп. 3,<br>Казань</p>
+        <p>+7 (900) 327-57-75</p>
+        <p>Ежедневно 9:00–20:00</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span>© <span id="year">2026</span> For Service · Казань</span>
+      <span>Ремонт по ОСАГО · Запчасти под заказ · Оплата: карта, СБП, наличные</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
