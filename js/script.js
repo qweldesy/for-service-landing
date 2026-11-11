@@ -45,7 +45,8 @@
       pill.style.transform = 'translate(' + Math.round(r.left - nr.left) + 'px,' + Math.round(r.top - nr.top) + 'px)';
       pill.classList.add('is-visible');
     };
-    if (instant) {
+    if (instant || !pill.classList.contains('is-visible')) {
+      // мгновенная установка: стартовая позиция или первое появление
       pill.style.transition = 'none';
       apply();
       requestAnimationFrame(() => { pill.style.transition = ''; });
@@ -58,17 +59,51 @@
   const sections = ['services', 'prices', 'reviews', 'about', 'contacts']
     .map(id => document.getElementById(id)).filter(Boolean);
   const links = [...nav.querySelectorAll('.nav__link')];
+
+  let lockedId = null;        // цель после клика: пока идёт плавный скролл, пилюля не дёргается
+  let scrollEndTimer = null;
+
+  function setActive(id) {
+    links.forEach(l => l.classList.toggle('is-active', !!id && l.getAttribute('href') === '#' + id));
+    movePill();
+  }
+  /* секция напротив «полосы внимания» (40–46% высоты экрана) */
+  function sectionAtBand() {
+    const bandTop = window.innerHeight * 0.40;
+    const bandBottom = window.innerHeight * 0.46;
+    for (const s of sections) {
+      const r = s.getBoundingClientRect();
+      if (r.top <= bandBottom && r.bottom >= bandTop) return s.id;
+    }
+    return null;
+  }
+
   const visible = new Set();
   const spy = new IntersectionObserver((entries) => {
     entries.forEach(en => {
       if (en.isIntersecting) visible.add(en.target.id);
       else visible.delete(en.target.id);
     });
+    if (lockedId) return; // едем к цели по клику — промежуточные секции игнорируем
     const current = sections.find(s => visible.has(s.id));
-    links.forEach(l => l.classList.toggle('is-active', !!current && l.getAttribute('href') === '#' + current.id));
-    movePill();
+    setActive(current ? current.id : null);
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => spy.observe(s));
+
+  /* клик по пункту: пилюля сразу едет к цели, спай ждёт окончания скролла */
+  links.forEach(l => l.addEventListener('click', () => {
+    lockedId = l.getAttribute('href').slice(1);
+    setActive(lockedId);
+  }));
+  window.addEventListener('scroll', () => {
+    if (!lockedId) return;
+    clearTimeout(scrollEndTimer);
+    scrollEndTimer = setTimeout(() => {
+      const target = lockedId;
+      lockedId = null;
+      setActive(sectionAtBand() || target);
+    }, 140);
+  }, { passive: true });
 
   /* пилюля: стартовая позиция без анимации + пересчёт при ресайзе и загрузке шрифтов */
   movePill(true);
