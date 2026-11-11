@@ -32,6 +32,28 @@
     }
   });
 
+  /* ---------- плавная «пилюля» активного пункта меню ---------- */
+  const pill = nav.querySelector('.nav__pill');
+  function movePill(instant = false) {
+    const active = nav.querySelector('.nav__link.is-active');
+    if (!active) { pill.classList.remove('is-visible'); return; }
+    const apply = () => {
+      const r = active.getBoundingClientRect();
+      const nr = nav.getBoundingClientRect();
+      pill.style.width = r.width + 'px';
+      pill.style.height = r.height + 'px';
+      pill.style.transform = 'translate(' + Math.round(r.left - nr.left) + 'px,' + Math.round(r.top - nr.top) + 'px)';
+      pill.classList.add('is-visible');
+    };
+    if (instant) {
+      pill.style.transition = 'none';
+      apply();
+      requestAnimationFrame(() => { pill.style.transition = ''; });
+    } else {
+      apply();
+    }
+  }
+
   /* ---------- активная ссылка навигации ---------- */
   const sections = ['services', 'prices', 'reviews', 'about', 'contacts']
     .map(id => document.getElementById(id)).filter(Boolean);
@@ -44,8 +66,14 @@
     });
     const current = sections.find(s => visible.has(s.id));
     links.forEach(l => l.classList.toggle('is-active', !!current && l.getAttribute('href') === '#' + current.id));
+    movePill();
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => spy.observe(s));
+
+  /* пилюля: стартовая позиция без анимации + пересчёт при ресайзе и загрузке шрифтов */
+  movePill(true);
+  window.addEventListener('resize', () => movePill(true), { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => movePill(true));
 
   /* ---------- появление блоков ---------- */
   const io = new IntersectionObserver((entries) => {

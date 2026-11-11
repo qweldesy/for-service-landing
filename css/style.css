@@ -135,21 +135,44 @@ section { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 
 .nav {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 6px;
   margin: 0 auto;
 }
+/* жёлтая пилюля — плавно переезжает под активный пункт */
+.nav__pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition:
+    transform .45s cubic-bezier(.22, 1, .36, 1),
+    width .45s cubic-bezier(.22, 1, .36, 1),
+    height .3s ease,
+    opacity .25s ease;
+  will-change: transform, width;
+}
+.nav__pill.is-visible { opacity: 1; }
 .nav__link {
+  position: relative;
+  z-index: 1;
   color: rgba(255,255,255,.72);
   font-size: 14.5px;
   font-weight: 500;
   padding: 8px 14px;
   border-radius: 999px;
-  transition: color .2s ease, background .2s ease;
+  transition: color .25s ease;
 }
 .nav__link:hover { color: #fff; }
-.nav__link.is-active { color: var(--ink); background: var(--accent); }
+.nav__link.is-active { color: var(--ink); }
 .nav__phone {
   display: none;
   font-weight: 700;
@@ -979,13 +1002,14 @@ select.field__input { appearance: none; background-image: linear-gradient(45deg,
   .nav__phone { display: block; margin-top: 18px; color: var(--accent); font-size: 17px; }
   .burger { display: flex; z-index: 95; position: relative; }
   .nav-actions .btn { display: none; }
-  .nav__link.is-active { background: transparent; color: var(--accent); }
+  .nav__link.is-active { color: var(--ink); }
 
   .hero { padding-top: calc(var(--header-h) + 40px); }
   .hero__row { flex-direction: column; align-items: flex-start; gap: 20px; padding-bottom: 60px; }
   .hero__text { padding-bottom: 0; }
   .booking { margin-top: -40px; border-radius: 20px; }
   .booking__form { grid-template-columns: 1fr; }
+  .booking__submit { justify-self: stretch; }
   .booking__tabs { flex-wrap: wrap; }
   .booking__tab { padding: 8px 14px; font-size: 13px; }
 
@@ -1005,4 +1029,44 @@ select.field__input { appearance: none; background-image: linear-gradient(45deg,
   .about__media img:first-child { height: 240px; }
   .footer__grid { grid-template-columns: 1fr; gap: 28px; }
   .footer__bottom { flex-direction: column; }
+}
+
+/* ---------- телефоны ---------- */
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cat-card__name { font-size: 19px; padding: 14px 14px 0; }
+  .cat-card__desc { font-size: 12px; padding: 0 14px 46px; }
+  .cat-card__go { width: 34px; height: 34px; right: 12px; bottom: 12px; font-size: 15px; }
+  .cat-card__go .lucide { width: 15px; height: 15px; }
+
+  .pop-grid { grid-template-columns: 1fr; }
+  .pop-card img { height: 200px; }
+
+  .features__grid { grid-template-columns: 1fr; gap: 18px; }
+
+  .price-table { border-radius: 14px; }
+  .price-row { padding: 13px 16px; gap: 10px; }
+  .price-row__dots { display: none; }
+  .price-row__value { margin-left: auto; }
+  .price-row__name { padding-right: 4px; }
+
+  .brands__track { gap: 30px; font-size: 15px; }
+
+  .reviews__summary { padding: 20px; }
+  .rating-big b { font-size: 52px; }
+  .review { padding: 18px; }
+  .slider-btn { width: 42px; height: 42px; }
+
+  .contacts__info { padding: 20px; }
+  .contact-row { padding: 10px 0; }
+  .contacts__map { min-height: 300px; }
+  .map-link { left: 16px; right: auto; }
+
+  .deal__text { padding-bottom: 40px; }
+  .deal__chip { font-size: 13.5px; padding: 8px 14px; }
+
+  .booking__form .field__input { padding: 11px 12px; }
+  .booking__submit { width: 100%; }
 }
